@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+    <title>Text Classification using AI</title>
+    <meta charset = "utf-8">
+    <!-- <meta name="viewport" content="width=device-width, inital-scale-1"> -->
+</head>
+    <body>
+        <nav>
+            <a href="./index1.html">Home</a>
+            <a href="./blog_list.html">Blog</a>
+            <a href="./about_me.html">About Me</a>
+        </nav>
+        <!--여기는 body를 center로 정렬  주의 ! 무조건 body안에 설정을해야 된다 -->
+        <div align = "center"> 
+        <h1>Text Classification using AI</h1>
+           <textarea id="q", cols="90", rows="30"></textarea>
+           <br><br>
+           <button id="qButton">AI Classification</button>
+           <div id="result"></div>
+        </div>
+        <Style>
+            body{
+                background:#65e7af;
+                background-size:cover;
+                font-family:'Open Sans', sans-serif;
+                background-attachment: fixed;
+                background-position: center;
+            }
+        </style>
+        <script>
+            const qs = (q) => document.querySelector(q)
+            window.onload = () => {
+               const q = qs('#q')
+               const qButton = qs('#qButton')
+               const result = qs('#result')
+               // 버튼 눌렀을떄 부분
+               qButton.onclick = () => {
+                   result.innerHTML = "..."
+                   // URL생성부분
+                   const api = "/api?q=" + encodeURLComponent(q.value)
+                   //API접근
+                   fetch(api).then((res) => {
+                       return res.json()
+                    }).then((data) => {
+                        // 결과를 화면에 출력하는 부분
+                        result.innerHTML =
+                          data["label"]+
+                          "<span style='font-size:0.5em'>("+"신뢰도:"+data["pre"]+")</span>"
+                   })
+                }
+            }
+        </script>
+    </body>
+</html>

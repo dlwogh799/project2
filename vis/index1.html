@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>이재호의 홈페이지</title>
+        <link href="./practice.css"rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="add_two_numbers.js"></script>
+        <script type="text/javascript" src="what_time_is_it.js"></script>
+        <script type="text/javascript">
+            function doSomething(){
+                let a = document.getElementById('inputA').value;
+                let b = document.getElementById('inputB').value;
+                document.getElementById("valueA").innerHTML = a;
+                document.getElementById("valueB").innerHTML = b;
+                document.getElementById("valueC").innerHTML = Number(a) + Number(b);
+            }
+
+            function whatTimeIsIt() {
+                alert(new Date());
+            }
+        </script>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./blog_list.html">Blog</a>
+            <a href="./about_me.html">About Me</a>
+            <a href="./Text Classification using AI.html">Classification</a>
+        </nav>
+
+        <h1>이재호</h1>
+        <h2>마포구 공덕동</h2>
+        <h3>010-xxxx-xxxx</h3>
+        <h4>가족 5명</h4>
+        <h5>취미가 크게 없다</h5>
+        <h6>간략하게 끝 !!</h6>
+
+        <button onclick="whatTimeIsIt()">현재시간</button>
+        <hr   />
+
+        
+        <p>이게 제가 만든 사이트 크롬입니다. 1단계죠?</p>
+        <a href="https://www.google.com">Go to google</a>
+        <hr/>
+        <p> 사진찍는걸 보는 고양이 </p>
+        <img src="./images/cat.jpg"width="200px"
+    </body>
+</html>
